@@ -153,9 +153,9 @@ class Ui_MainWindow(object):
             else:
                 ad_sho = helper_sho[np.random.randint(len(helper_sho))]
         
-        self.listWidget_1.setPixmap(QtGui.QPixmap(ad_top[-1]).scaled(281,300))
-        self.listWidget_2.setPixmap(QtGui.QPixmap(ad_bot[-1]).scaled(281,300))
-        self.listWidget_3.setPixmap(QtGui.QPixmap(ad_sho[-1]).scaled(281,300))
+        self.listWidget_1.setPixmap(QtGui.QPixmap(ad_top[-1]).scaled(341,300))
+        self.listWidget_2.setPixmap(QtGui.QPixmap(ad_bot[-1]).scaled(341,300))
+        self.listWidget_3.setPixmap(QtGui.QPixmap(ad_sho[-1]).scaled(341,300))
 
     # The above is what functions the GUI should have
     
@@ -214,26 +214,26 @@ class Ui_MainWindow(object):
         self.HistoryButton.setGeometry(QtCore.QRect(1450, 825, 431, 81))
         self.HistoryButton.setObjectName("HistoryButton")
         self.TopLabel = QtWidgets.QLabel(self.centralwidget)
-        self.TopLabel.setGeometry(QtCore.QRect(150, 50, 35, 21))
+        self.TopLabel.setGeometry(QtCore.QRect(150, 50, 341, 21))
         self.TopLabel.setTextFormat(QtCore.Qt.RichText)
         self.TopLabel.setObjectName("TopLabel")
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(550, 50, 65, 21))
+        self.label.setGeometry(QtCore.QRect(550, 50, 341, 21))
         self.label.setObjectName("label")
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
-        self.label_2.setGeometry(QtCore.QRect(950, 50, 55, 21))
+        self.label_2.setGeometry(QtCore.QRect(950, 50, 341, 21))
         self.label_2.setObjectName("label_2")
         self.listWidget_1 = QtWidgets.QLabel(self.centralwidget)
-        self.listWidget_1.setGeometry(QtCore.QRect(10, 370, 281, 300))
+        self.listWidget_1.setGeometry(QtCore.QRect(150, 370, 341, 300))
         self.listWidget_1.setObjectName("listWidget_1")
         self.listWidget_1.setPixmap(QtGui.QPixmap("/Users/pingkefan/Desktop/top_question.png").scaled(281,300))
         self.listWidget_2 = QtWidgets.QLabel(self.centralwidget)
-        self.listWidget_2.setGeometry(QtCore.QRect(300, 370, 281, 300))
+        self.listWidget_2.setGeometry(QtCore.QRect(550, 370, 341, 300))
         self.listWidget_2.setObjectName("listWidget_2")
         self.listWidget_2.setPixmap(QtGui.QPixmap("/Users/pingkefan/Desktop/top_question.png").scaled(281,300))
         
         self.listWidget_3 = QtWidgets.QLabel(self.centralwidget)
-        self.listWidget_3.setGeometry(QtCore.QRect(590, 370, 281, 300))
+        self.listWidget_3.setGeometry(QtCore.QRect(950, 370, 341, 300))
         self.listWidget_3.setObjectName("listWidget_3")
         self.listWidget_3.setPixmap(QtGui.QPixmap("/Users/pingkefan/Desktop/top_question.png").scaled(281,300))
         
@@ -341,6 +341,9 @@ def run_ui():
     ui.label.setStyleSheet("background-color: Turquoise; color: black;")
     ui.label_2.setStyleSheet("background-color: Turquoise; color: black;")
     ui.TopLabel.setStyleSheet("background-color: Turquoise; color: black;")
+    ui.listWidget_1.setStyleSheet("background-color: rgba(255, 255, 255, 50);")
+    ui.listWidget_2.setStyleSheet("background-color: rgba(255, 255, 255, 50);")
+    ui.listWidget_3.setStyleSheet("background-color: rgba(255, 255, 255, 50);")
     MainWindow.show()
     sys.exit(app.exec_())
 
