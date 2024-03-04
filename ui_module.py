@@ -4,7 +4,8 @@ from PyQt5.QtCore import QFileInfo
 from PyQt5.QtWidgets import QFileDialog,QLabel
 from PyQt5.QtGui import *
 from PyQt5.QtGui import QIcon
-
+from PyQt5.QtGui import QPixmap
+from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton, QVBoxLayout, QWidget, QLabel
 from recognition_module import*
 
 
@@ -167,55 +168,60 @@ class Ui_MainWindow(object):
         Add items into GUI.
         """
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(2400, 1600)
+        MainWindow.resize(1920, 1080)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
+        self.label = QtWidgets.QLabel(self.centralwidget)
+        self.label.setGeometry(QtCore.QRect(0, 0, 1920, 1080))  # Set the label size to match the window
+        self.label.setText("")
+        self.label.setPixmap(QtGui.QPixmap("D:\Project\PAHIRAN\Artboard 6.png"))  # Set the path to your image file
+        self.label.setScaledContents(True)  # Scale the image to fit the label
         self.TOP_LIST = QtWidgets.QListWidget(self.centralwidget)
-        self.TOP_LIST.setGeometry(QtCore.QRect(10, 30, 281, 181))
+        self.TOP_LIST.setGeometry(QtCore.QRect(150, 70, 341, 181))
         self.TOP_LIST.setObjectName("TOP_LIST")
         self.AddTopButton = QtWidgets.QPushButton(self.centralwidget)
-        self.AddTopButton.setGeometry(QtCore.QRect(10, 210, 141, 41))
+        self.AddTopButton.setGeometry(QtCore.QRect(150, 250, 171, 41))
         self.AddTopButton.setAutoFillBackground(False)
         self.AddTopButton.setCheckable(False)
         self.AddTopButton.setObjectName("AddTopButton")
         self.DeleteTopButton = QtWidgets.QPushButton(self.centralwidget)
-        self.DeleteTopButton.setGeometry(QtCore.QRect(150, 210, 141, 41))
+        self.DeleteTopButton.setGeometry(QtCore.QRect(320, 250, 171, 41))
         self.DeleteTopButton.setCheckable(False)
         self.DeleteTopButton.setChecked(False)
         self.DeleteTopButton.setObjectName("DeleteTopButton")
         self.AddBottomButton = QtWidgets.QPushButton(self.centralwidget)
-        self.AddBottomButton.setGeometry(QtCore.QRect(300, 210, 141, 41))
+        self.AddBottomButton.setGeometry(QtCore.QRect(550, 250, 171, 41))
         self.AddBottomButton.setObjectName("AddBottomButton")
         self.BOTTOM_LIST = QtWidgets.QListWidget(self.centralwidget)
-        self.BOTTOM_LIST.setGeometry(QtCore.QRect(300, 30, 281, 181))
+        self.BOTTOM_LIST.setGeometry(QtCore.QRect(550, 70, 341, 181))
         self.BOTTOM_LIST.setObjectName("BOTTOM_LIST")
         self.DeleteBottomButton = QtWidgets.QPushButton(self.centralwidget)
-        self.DeleteBottomButton.setGeometry(QtCore.QRect(440, 210, 141, 41))
+        self.DeleteBottomButton.setGeometry(QtCore.QRect(720, 250, 171, 41))
         self.DeleteBottomButton.setObjectName("DeleteBottomButton")
         self.AddShoeButton = QtWidgets.QPushButton(self.centralwidget)
-        self.AddShoeButton.setGeometry(QtCore.QRect(590, 210, 141, 41))
+        self.AddShoeButton.setGeometry(QtCore.QRect(950, 250, 171, 41))
         self.AddShoeButton.setObjectName("AddShoeButton")
         self.SHOE_LIST = QtWidgets.QListWidget(self.centralwidget)
-        self.SHOE_LIST.setGeometry(QtCore.QRect(590, 30, 281, 181))
+        self.SHOE_LIST.setGeometry(QtCore.QRect(950, 70, 341, 181))
         self.SHOE_LIST.setObjectName("SHOE_LIST")
         self.DeleteShoeButton = QtWidgets.QPushButton(self.centralwidget)
-        self.DeleteShoeButton.setGeometry(QtCore.QRect(730, 210, 141, 41))
+        self.DeleteShoeButton.setGeometry(QtCore.QRect(1120, 250, 171, 41))
         self.DeleteShoeButton.setObjectName("DeleteShoeButton")
         self.GenerateButton = QtWidgets.QPushButton(self.centralwidget)
         self.GenerateButton.setGeometry(QtCore.QRect(1450, 925, 431, 81))
         self.GenerateButton.setObjectName("GenerateButton")
         self.HistoryButton = QtWidgets.QPushButton(self.centralwidget)
-        self.HistoryButton.setGeometry(QtCore.QRect(50, 925, 431, 81))
+        self.HistoryButton.setGeometry(QtCore.QRect(1450, 825, 431, 81))
         self.HistoryButton.setObjectName("HistoryButton")
         self.TopLabel = QtWidgets.QLabel(self.centralwidget)
-        self.TopLabel.setGeometry(QtCore.QRect(140, 10, 60, 16))
+        self.TopLabel.setGeometry(QtCore.QRect(150, 50, 35, 21))
         self.TopLabel.setTextFormat(QtCore.Qt.RichText)
         self.TopLabel.setObjectName("TopLabel")
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(420, 10, 60, 16))
+        self.label.setGeometry(QtCore.QRect(550, 50, 65, 21))
         self.label.setObjectName("label")
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
-        self.label_2.setGeometry(QtCore.QRect(710, 10, 60, 16))
+        self.label_2.setGeometry(QtCore.QRect(950, 50, 55, 21))
         self.label_2.setObjectName("label_2")
         self.listWidget_1 = QtWidgets.QLabel(self.centralwidget)
         self.listWidget_1.setGeometry(QtCore.QRect(10, 370, 281, 300))
@@ -266,6 +272,14 @@ class Ui_MainWindow(object):
         logo_path = 'D:\Project\PAHIRAN\pahiran icons -01.png'
         logo =QIcon(logo_path)
         MainWindow.setWindowIcon(logo)
+        
+        # # Create a QLabel widget to display the logo
+        # logo_label = QLabel(MainWindow)
+        # pixmap = QPixmap(logo_path).scaled(175, 175)  # Set the size to 100x100
+        # logo_label.setPixmap(pixmap)
+        # logo_label.setGeometry(1730, 25, 175, 175)  # Set the position and size of the label
+        # logo_label.show()
+        
         MainWindow.setWindowTitle(_translate("MainWindow", "PAHIRAN"))
         self.AddTopButton.setText(_translate("MainWindow", "EDIT"))
         self.DeleteTopButton.setText(_translate("MainWindow", "DELETE"))
@@ -275,10 +289,17 @@ class Ui_MainWindow(object):
         self.DeleteShoeButton.setText(_translate("MainWindow", "DELETE"))
         self.GenerateButton.setText(_translate("MainWindow", "Generate Today\'s Outfit Recommendation"))
         self.HistoryButton.setText(_translate("MainWindow", "ADD A PHOTO"))
-        self.TopLabel.setText(_translate("MainWindow", "Top"))
-        self.label.setText(_translate("MainWindow", "Bottom"))
-        self.label_2.setText(_translate("MainWindow", "Shoes"))
-        
+        self.TopLabel.setText(_translate("MainWindow", "TOP"))
+        self.label.setText(_translate("MainWindow", "BOTTOM"))
+        self.label_2.setText(_translate("MainWindow", "SHOES"))
+import sys        
+if __name__ == "__main__":
+    app = QtWidgets.QApplication(sys.argv)
+    MainWindow = QtWidgets.QMainWindow()
+    ui = Ui_MainWindow()
+    ui.setupUi(MainWindow)
+    MainWindow.show()
+    sys.exit(app.exec_())        
 def run_ui():
     
 
@@ -317,8 +338,12 @@ def run_ui():
     ui.DeleteTopButton.setStyleSheet("background-color: white; color: black;")
     ui.DeleteBottomButton.setStyleSheet("background-color: white; color: black;")
     ui.DeleteShoeButton.setStyleSheet("background-color: white; color: black;")
-    ui.label.setStyleSheet("color: white;")
-    ui.label_2.setStyleSheet("color: white;")
-    ui.TopLabel.setStyleSheet("color: white;")
+    ui.label.setStyleSheet("background-color: Turquoise; color: black;")
+    ui.label_2.setStyleSheet("background-color: Turquoise; color: black;")
+    ui.TopLabel.setStyleSheet("background-color: Turquoise; color: black;")
     MainWindow.show()
     sys.exit(app.exec_())
+
+
+
+
